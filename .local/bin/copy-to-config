@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+repo="$HOME/www/Dotfiles"
+dotfiles="$repo/dotfiles"
+
+declare to_be_removed=(
+  '*.hi'
+  '*.o'
+  'fish_variables'
+  '__pycache__'
+  'minecraft'
+)
+
+declare configs_in_home=(
+  # Configs that are not in the .config directory
+  "$HOME/.dwm"
+  "$HOME/.vimrc"
+  "$HOME/.xmonad"
+  "$HOME/.doom.d"
+
+  # My shells configs
+  "$HOME/.bashrc"
+  "$HOME/.zshrc"
+
+  # My git config
+  "$HOME/.gitconfig"
+)
+
+rmall() {
+  local dir="$1"
+  local oper="$2"
+
+  find "$dir" -iname "$oper" -exec rm -rf {} \;
+}
+
+for item in "${configs_in_home[@]}"; do
+  cp -r "$item" "$dotfiles"
+done
+
+# My custom binaries
+cp -r ~/.local/bin "$dotfiles/.local"
+
+# Copy my most edited configs
+ls ~/.config | grep -e 'alacritty' -e 'micro'\
+  -e 'neofetch' -e 'picom' -e 'ranger' -e 'rofi'\
+  -e 'fish' -e 'xmobar' -e 'starship' -e 'nvim'\
+  -e 'qtile' -e 'sxhkd' -e 'polybar' -e 'bspwm'\
+  -e 'dunst' -e 'polybar.old'\
+  | xargs -I {} cp -r ~/.config/{} "$dotfiles/.config"
+
+for item in "${to_be_removed[@]}"; do
+  rmall "$dotfiles" "$item"
+done
+
+notify-send -u normal "Copy config" "Copied config files to git repository"

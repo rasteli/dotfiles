@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source "$HOME/.local/bin/launcher"
+
+sinks=$(pacmd list-sinks | grep name: | sed 's/[<>]//g' | awk -F ': ' '{print $2}')
+option=$(printf '%s\n' "${sinks[@]}" | $LAUNCHER -l 15 -h 22 -p "Sinks")
+
+pacmd set-default-sink "$option"
+
+pacmd list-sink-inputs | grep index | while read -r line; do
+	pacmd move-sink-input "$(echo $line | cut -f2 -d ' ')" "$option"
+done

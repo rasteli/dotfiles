@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pushd $HOME/www/simple-camera/out/simple-camera-linux-x64
+	./simple-camera $@
+popd

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#  __  __ _____ _   _ _   _       ____   ___   ___  _  ____  __    _    ____  _  ______
+# |  \/  | ____| \ | | | | |     | __ ) / _ \ / _ \| |/ /  \/  |  / \  |  _ \| |/ / ___|
+# | |\/| |  _| |  \| | | | |_____|  _ \| | | | | | | ' /| |\/| | / _ \ | |_) | ' /\___ \
+# | |  | | |___| |\  | |_| |_____| |_) | |_| | |_| | . \| |  | |/ ___ \|  _ <| . \ ___) |
+# |_|  |_|_____|_| \_|\___/      |____/ \___/ \___/|_|\_\_|  |_/_/   \_\_| \_\_|\_\____/
+#
+# Script for listing and opening my browser bookmarks.
+
+browser="librewolf"
+
+# Selecting which launcher to open.
+source "$HOME/.local/bin/launcher"
+# Librewolf bookmarks path.
+bookmark_db="$HOME/.librewolf/eiggqx1j.default-release/places.sqlite"
+
+# Looking for processes using the database.
+process=$(fuser "$bookmark_db")
+# If there's any process, exits this program as the database will be locked.
+[ -n "$process" ] && notify-send -u critical "Menu-bookmark"\
+    "Can't open database: it's locked!\nProcess$process is using it." && exit 1
+
+# Grabbing the urls from the correct table.
+bookmarks=$(sqlite3 -line "$bookmark_db" 'select url from moz_places'\
+    | sed -e '/^$/d' -e 's/ //g' -e 's/url=//')
+
+# Selecting which url to open.
+bm_selected=$(printf '%s\n' "${bookmarks[@]}" | $LAUNCHER -l 15 -h 28 -p 'Open bookmark')
+
+[ -z "$bm_selected" ] && exit 1
+
+"$browser" "$bm_selected"
+exit 0
