@@ -16,7 +16,7 @@ launch_bar() {
 		polybar -q bottom -c "$dir/$style/config.ini" &
 	elif [[ "$style" == "pwidgets" ]]; then
 		bash "$dir"/pwidgets/launch.sh --main
-  elif [[ "$style" == "space" ]]; then
+  elif [[ "$style" == "space" || "$style" == "powerline" ]]; then
     polybar -q main -c "$dir/$style/main_config.ini" &
     polybar -q main -c "$dir/$style/second_config.ini" &
   elif [[ "$style" == "osx" ]]; then
@@ -73,6 +73,10 @@ elif [[ "$1" == "--space" ]]; then
 
 elif [[ "$1" == "--osx" ]]; then
 	style="osx"
+	launch_bar
+
+elif [[ "$1" == "--powerline" ]]; then
+	style="powerline"
 	launch_bar
 
 else
