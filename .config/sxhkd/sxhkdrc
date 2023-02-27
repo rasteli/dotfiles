@@ -26,7 +26,8 @@ super + Return
 
 ## program launcher
 super + shift + Return
-  rofi -modes drun,run,window -show drun -show-icons -sidebar-mode -display-drun 'RUN' -display-run 'Run Binaries' -display-window 'Select window'
+	rofi -show drun
+  #rofi -modes drun,run,window -show drun -show-icons -sidebar-mode -display-drun 'RUN' -display-run 'Run Binaries' -display-window 'Select window'
   #dmenu_run -h 20 -g 5 -l 20 -p 'RUN:'
 
 ## launch xmenu with middle click on empty desktop
