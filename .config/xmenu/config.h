@@ -3,9 +3,11 @@ static struct Config config = {
 	.font = "monospace:size=9,DejaVuSansMono:size=9",
 
 	/* colors */
-	.background_color = "#1a1c22",
+	.background_color = "#121214",
+	//.background_color = "#1a1c22",
 	.foreground_color = "#fff",
-	.selbackground_color = "#2679db",
+	//.selbackground_color = "#2679db",
+	.selbackground_color = "#bd93f9",
 	.selforeground_color = "#121214",
 	.separator_color = "#dedede",
 	.border_color = "#E6E6E6",
