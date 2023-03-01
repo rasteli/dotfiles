@@ -11,7 +11,7 @@ source "$HOME/.local/bin/launcher"
 gitconfig="$HOME/.gitconfig"
 #fishconfig="$HOME/.config/fish/config.fish"
 
-aliases=$(cat "$gitconfig" | awk '/start/,/end/' | grep -v '#' | grep -v '\[')
+aliases=$(cat "$gitconfig" | awk '/start/,/end/' | grep -v '#' | grep -v '\[' | sed -E 's/^\s{1,}//')
           #cat "$fishconfig" | awk '/Git start/,/Git end/' | grep -v '#'\
           #| awk -F 'alias' '{print $2}' | sed 's/=/ = /g')
 
