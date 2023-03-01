@@ -2,7 +2,6 @@
 set local_bin "$HOME/.local/bin"
 set java "/usr/local/lib/jre1.8/bin"
 set menu_scripts "$HOME/.local/bin/menu"
-#set nodejs "/usr/lib/nodejs/bin"
 
 ### ADDING TO THE PATH
 # First line removes the path, second line sets it. Without the first line,
@@ -68,26 +67,6 @@ alias pacmansyu="sudo pacman -Syu"                # Update all pacman packages
 alias cleancache="sudo paccache -ruk0"            # Remove uninstalled packages cache
 alias cleanup="sudo pacman -Rns (pacman -Qdtq)"   # Remove orphaned packages
 
-### Git start
-#alias gps="git push"
-#alias gpl="git pull"
-#alias gcl="git clone"
-#alias gck="git checkout"
-#alias gckm="git checkout master"
-#alias gckb="git checkout -b"
-#alias gst="git status -sb"
-#alias gsf="git show --name-only"
-#alias glg="git log --pretty=format:'%Cred%h%Creset %C(bold)%cr%Creset %Cgreen<%an>%Creset %s' --max-count=30"
-#alias gc="git commit"
-#alias gaa="git add ."
-#alias gau="git add -u"
-#alias gcm="git commit -m"
-#alias gr="git remote -v"
-#alias gra="git remote add"
-#alias grr="git remote remove"
-#alias nextts="git clone git@github.com:rasteli/NextTS.git"  # Boilerplate for NextJS with TypeScript
-### Git end
-
 ### Emacs
 alias emacs="emacsclient -c -a 'emacs'"
 
@@ -107,13 +86,14 @@ alias bare='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 #### Misc
 alias cat="bat"
 alias vim="nvim"
-#alias clear="clear && colorscript -e zwaves"
 alias ls="exa -al --group-directories-first"
 alias rr="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 # ====== ALIASES END ====== #
 
 # Randomly selecting a color script.
 colorscript random
+
 # Initializing starship prompt.
 starship init fish | source
+
 #source ~/.cache/wal/colors.fish
