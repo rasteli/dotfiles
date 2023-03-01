@@ -28,6 +28,8 @@
   unstage = reset HEAD --
   # undoes changes from files in unstaging area
   undo = checkout --
-  # goes back one commit
+  # goes back one commit from local repository
   rollback = reset --soft HEAD~1
+	# goes back commits from remote repository
+	rbremote = push origin +HEAD
 #end
