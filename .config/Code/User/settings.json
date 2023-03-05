@@ -2,7 +2,8 @@
   "workbench.colorTheme": "Rosé Pine",
   "workbench.iconTheme": "symbols",
   "workbench.productIconTheme": "fluent-icons",
-  "workbench.startupEditor": "none",
+  "workbench.startupEditor": "newUntitledFile",
+  "window.restoreWindows": "none",
 
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
