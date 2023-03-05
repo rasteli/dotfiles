@@ -20,7 +20,7 @@ selected=$(printf '%s\n' "${documents[@]}" | $LAUNCHER -l 15 -h 22 -p 'Select do
 file_type=$(echo "$selected" | awk -F '.' '{print $2}')
 
 if [ -n "$file_type" ]; then
-  zathura "$HOME/Documents/$file_type/$selected"
+  zathura "$HOME/Documents/$selected"
 else
   echo "Invalid file type." && exit 1
 fi
