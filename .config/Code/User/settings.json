@@ -157,5 +157,7 @@
     "factories": "Functions",
     "reducers": "Core"
   },
-  "redhat.telemetry.enabled": false
+
+  "code-runner.runInTerminal": true,
+  "C_Cpp.default.cppStandard": "c++20"
 }
