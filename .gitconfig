@@ -33,3 +33,6 @@
 	# goes back commits from remote repository
 	rbremote = push origin +HEAD
 #end
+
+[init]
+	defaultBranch = main
