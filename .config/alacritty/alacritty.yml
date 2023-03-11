@@ -332,4 +332,4 @@ schemes:
 # ====== COLORSCHEMES END ====== #
 
 # Set colorscheme
-colors: *Dracula
+colors: *Doom-One
