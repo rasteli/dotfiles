@@ -14,7 +14,7 @@ let g:indentLine_color_gui = '#383D4A'  " - Color of character when true color i
 
 """ Lightline configuration
 let g:lightline = {
-  \ 'colorscheme': 'dracula',
+  \ 'colorscheme': 'one',
   \ 'active': {
   \   'left': [
   \     ['mode', 'paste'],

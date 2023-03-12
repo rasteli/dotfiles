@@ -2,6 +2,7 @@
 set local_bin "$HOME/.local/bin"
 set java "/usr/local/lib/jre1.8/bin"
 set menu_scripts "$HOME/.local/bin/menu"
+#set emacs "$HOME/.config/emacs/bin"
 
 ### ADDING TO THE PATH
 # First line removes the path, second line sets it. Without the first line,
@@ -63,9 +64,8 @@ alias mv="mv -i"
 alias rm="rm -i"
 
 ### Package management
-alias pacmansyu="sudo pacman -Syu"                # Update all pacman packages
-alias cleancache="sudo paccache -ruk0"            # Remove uninstalled packages cache
-alias cleanup="sudo pacman -Rns (pacman -Qdtq)"   # Remove orphaned packages
+alias pacmansyu="sudo pacman -Syu"	# Update all pacman packages
+alias cleanup="sudo pacman -Rns (pacman -Qdtq); sudo paccache -ruk0"	# Remove orphaned packages and uninstalled packages cache
 
 ### Emacs
 alias emacs="emacsclient -c -a 'emacs'"
@@ -75,10 +75,10 @@ alias startpg="pg_ctl start -D ~/.local/share/postgresql/ -l ~/.local/share/post
 alias psql="psql -h /tmp -d"
 
 ### Doom Emacs
-alias dooms="~/.emacs.d/bin/doom sync"
-alias doomb="~/.emacs.d/bin/doom build"
-alias doomd="~/.emacs.d/bin/doom doctor"
-alias doomu="~/.emacs.d/bin/doom upgrade"
+#alias dooms="~/.emacs.d/bin/doom sync"
+#alias doomb="~/.emacs.d/bin/doom build"
+#alias doomd="~/.emacs.d/bin/doom doctor"
+#alias doomu="~/.emacs.d/bin/doom upgrade"
 
 ### Git bare repository
 alias bare='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'

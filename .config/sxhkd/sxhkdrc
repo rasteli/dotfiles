@@ -135,7 +135,8 @@ super + alt + t
 super + alt + n
   alacritty -e sudo ncdu /
 super + alt + Return
-  code
+	code
+  #emacsclient -c -a 'emacs' #-e '(+workspace/kill-session)'
 
 
 
