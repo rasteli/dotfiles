@@ -12,9 +12,8 @@
 source "$HOME/.local/bin/launcher"
 
 declare -A actions
-actions["Copy config files to local git repository"]="copy"
-actions["Set code-oss extension gallery"]="code"
 actions["Apply pywal colors to Alacritty"]="wal"
+actions["Set polybar theme"]="polybar"
 
 choice=$(printf '%s\n' "${!actions[@]}" \
   | $LAUNCHER -l 15 -h 22 -p 'Select action')
@@ -23,10 +22,8 @@ if [ -n "$choice" ]; then
   action="${actions["$choice"]}"
 
   case "$action" in
-    copy)
-      ~/.local/bin/copy-to-config ;;
-    code)
-      ~/.local/bin/set-code-extension-gallery ;;
+    polybar)
+      ~/.local/bin/menu/menu-polybar-theme -l dmenu ;;
     wal)
       ~/.local/bin/wal/alacritty ;;
     *)
